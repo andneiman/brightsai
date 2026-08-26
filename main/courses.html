@@ -267,6 +267,30 @@
     </div>
   </footer>
 
+  <div class="lead-modal" id="lead-modal" hidden>
+    <div class="lead-modal-backdrop" data-close></div>
+    <div class="lead-modal-card" role="dialog" aria-modal="true" aria-labelledby="lead-title">
+      <button class="lead-modal-close" type="button" aria-label="Close" data-close>×</button>
+      <div class="lead-step" data-step="form">
+        <span class="eyebrow">Parent email</span>
+        <h2 id="lead-title">Get this course</h2>
+        <p class="serif" id="lead-copy">Enter your email and we’ll send onboarding instructions and the materials to get started.</p>
+        <form id="lead-form">
+          <label class="lead-label" for="lead-email">Email</label>
+          <input class="lead-input" id="lead-email" type="email" name="email" autocomplete="email" placeholder="you@email.com" required>
+          <p class="lead-error" id="lead-error" hidden>Enter a valid email address.</p>
+          <button class="btn btn-dark" id="lead-submit" type="submit">Send instructions</button>
+        </form>
+      </div>
+      <div class="lead-step" data-step="done" hidden>
+        <span class="eyebrow">Sent</span>
+        <h2>Check your inbox</h2>
+        <p class="serif" id="lead-done">We sent the instructions and materials to your email.</p>
+        <button class="btn btn-dark" type="button" data-close>Done</button>
+      </div>
+    </div>
+  </div>
+
   <script src="/main/js/catalog.js"></script>
   <script src="/main/js/quiz.js"></script>
 

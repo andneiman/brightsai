@@ -388,8 +388,8 @@ var CATALOG = [
             '<ol class="units">' + units + '</ol>' +
             '<p class="course-turnaround">Choose this course and we deliver the personalized version in <b>72 hours</b>.</p>' +
             '<div class="course-actions">' +
-              '<a class="a-dark" href="#">Choose this course →</a>' +
-              '<a class="a-light" href="#">Download syllabus</a>' +
+              '<a class="a-dark js-lead" href="#" data-intent="enroll" data-course="' + esc(c.n) + '">Choose this course →</a>' +
+              '<a class="a-light js-lead" href="#" data-intent="syllabus" data-course="' + esc(c.n) + '">Download syllabus</a>' +
               '<a class="a-light" href="#states">Check ESA status</a>' +
             '</div>' +
           '</div>' +
@@ -466,4 +466,110 @@ var CATALOG = [
   });
 
   apply();
+
+  var COPY = {
+    enroll: {
+      title: 'Get this course',
+      body: 'Enter your email and we’ll send onboarding instructions and the materials to get started with {course}.',
+      submit: 'Send instructions'
+    },
+    syllabus: {
+      title: 'Get the syllabus',
+      body: 'Enter your email and we’ll send the syllabus and course materials for {course}.',
+      submit: 'Send syllabus'
+    }
+  };
+
+  var modal = document.getElementById('lead-modal');
+  if (!modal) return;
+
+  var form = document.getElementById('lead-form');
+  var emailInput = document.getElementById('lead-email');
+  var errorEl = document.getElementById('lead-error');
+  var submitBtn = document.getElementById('lead-submit');
+  var formStep = modal.querySelector('[data-step="form"]');
+  var doneStep = modal.querySelector('[data-step="done"]');
+  var lastTrigger = null;
+  var sending = false;
+
+  function setCopy(intent, course) {
+    var pack = COPY[intent] || COPY.enroll;
+    document.getElementById('lead-title').textContent = pack.title;
+    document.getElementById('lead-copy').textContent = pack.body.replace('{course}', course || 'this course');
+    submitBtn.textContent = pack.submit;
+    document.getElementById('lead-done').textContent =
+      'We sent the instructions and materials to ' + (emailInput.value.trim() || 'your email') +
+      '. If you don’t see them in a minute, check spam.';
+  }
+
+  function openLead(intent, course, trigger) {
+    lastTrigger = trigger || null;
+    sending = false;
+    form.reset();
+    errorEl.hidden = true;
+    emailInput.removeAttribute('aria-invalid');
+    submitBtn.disabled = false;
+    submitBtn.textContent = (COPY[intent] || COPY.enroll).submit;
+    formStep.hidden = false;
+    doneStep.hidden = true;
+    setCopy(intent, course);
+    modal.hidden = false;
+    document.body.classList.add('is-locked');
+    window.setTimeout(function () { emailInput.focus(); }, 30);
+  }
+
+  function closeLead() {
+    modal.hidden = true;
+    document.body.classList.remove('is-locked');
+    sending = false;
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  function validEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  document.addEventListener('click', function (e) {
+    var lead = e.target.closest('.js-lead');
+    if (lead) {
+      e.preventDefault();
+      openLead(lead.dataset.intent, lead.dataset.course, lead);
+      return;
+    }
+    if (!modal.hidden && e.target.closest('#lead-modal [data-close]')) {
+      e.preventDefault();
+      closeLead();
+    }
+  });
+
+  modal.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLead();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (sending) return;
+    var value = emailInput.value.trim();
+    if (!validEmail(value)) {
+      errorEl.hidden = false;
+      emailInput.setAttribute('aria-invalid', 'true');
+      emailInput.focus();
+      return;
+    }
+    errorEl.hidden = true;
+    emailInput.removeAttribute('aria-invalid');
+    sending = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    window.setTimeout(function () {
+      document.getElementById('lead-done').textContent =
+        'We sent the instructions and materials to ' + value +
+        '. If you don’t see them in a minute, check spam.';
+      formStep.hidden = true;
+      doneStep.hidden = false;
+      sending = false;
+      var doneBtn = doneStep.querySelector('[data-close]');
+      if (doneBtn) doneBtn.focus();
+    }, 700);
+  });
 })();
