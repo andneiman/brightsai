@@ -250,7 +250,7 @@ var CATALOG = [
   {
     subject: 'Languages',
     color: 'linear-gradient(160deg, #9f7bec, #7048c9)',
-    note: 'Our Languages department covers two tracks: English language arts for native and fluent speakers, and world languages taught from the beginning. Both use the same AI learning assistant for practice and feedback.',
+    note: 'Our Languages department covers two tracks: English language arts for native and fluent speakers, and world languages taught from the beginning.',
     courses: [
       {
         n: 'Reading and Vocabulary, Grades 2–3', g: 'Grades 2–3', b: 'K-2', h: '70–90 hrs', track: 'English language arts',
@@ -289,7 +289,7 @@ var CATALOG = [
       },
       {
         n: 'Speaking and Listening, Grades 6–12', g: 'Grades 6–12', b: 'Elective', h: '40–60 hrs', e: true, track: 'English language arts',
-        d: 'Presentation, discussion, and debate skills, practised out loud with the AI assistant and recorded for parent review.',
+        d: 'Presentation, discussion, and debate skills, practised out loud and recorded for parent review.',
         u: ['Preparing a presentation', 'Delivery, pacing, and body language', 'Visual aids that help', 'Academic discussion norms', 'Structured debate', 'Active listening and note-taking', 'Evaluating spoken arguments', 'Interviewing and asking questions', 'Collaborative projects']
       },
       {
@@ -304,7 +304,7 @@ var CATALOG = [
       },
       {
         n: 'Spanish I', g: 'Grades 6–12 · Novice', b: '6-8', h: '100–120 hrs', track: 'World languages',
-        d: 'A first year of Spanish built around speaking from day one, with the assistant available for conversation practice at any hour.',
+        d: 'A first year of Spanish built around speaking from day one.',
         u: ['Greetings and introductions', 'The alphabet and pronunciation', 'Numbers, dates, and time', 'Nouns, articles, and gender', 'Present tense of regular verbs', 'Ser and estar', 'Common irregular verbs', 'Adjectives and agreement', 'Family and describing people', 'Daily routine', 'Food and ordering', 'School and the classroom', 'Asking questions', 'Culture: the Spanish-speaking world']
       },
       {

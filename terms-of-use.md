@@ -41,11 +41,11 @@ To personalize a course, the Parent must complete the requested onboarding quest
 
 Our standard target is to make the personalized course available within 72 hours after both the Parent questionnaire and student diagnostic are complete. The enrollment page or order confirmation may state a more specific delivery time. If we know before purchase that an unusual grade, subject combination, accommodation, or other circumstance requires additional time, we will disclose that before payment. The 72-hour target does not apply while required onboarding information is missing, materially inaccurate, or being corrected, or when delay results from events outside our reasonable control.
 
-Parents may review the course overview, learning plan, scope and sequence, and key materials before the student begins. If you believe the delivered course materially differs from the purchased course description, contact **support@brights.ai** promptly.
+Parents may review the course overview, learning plan, scope and sequence, and key materials before the student begins. If you believe the delivered course materially differs from the purchased course description, contact **support@brights.study** promptly.
 
 ## 5. Accounts and security
 
-You must provide accurate account information, keep it current, protect account credentials, and notify us promptly at **support@brights.ai** if you suspect unauthorized access. You are responsible for activity under your account to the extent permitted by law.
+You must provide accurate account information, keep it current, protect account credentials, and notify us promptly at **support@brights.study** if you suspect unauthorized access. You are responsible for activity under your account to the extent permitted by law.
 
 Parent credentials may not be shared with a student. Student access must use the student profile or access method we provide. You may not sell, transfer, sublicense, or share access outside your household or the users covered by the applicable order without our written permission.
 
@@ -104,7 +104,7 @@ We may provide an itemized invoice, course description, syllabus, standards info
 
 ## 10. Cancellations and refunds
 
-You may cancel a course purchase for any reason and request a full refund of the course price within **30 calendar days after the original purchase date**. To request a refund, email **support@brights.ai** from the Parent email address associated with the purchase and identify the order and course. The request is timely if sent before the end of the 30th calendar day.
+You may cancel a course purchase for any reason and request a full refund of the course price within **30 calendar days after the original purchase date**. To request a refund, email **support@brights.study** from the Parent email address associated with the purchase and identify the order and course. The request is timely if sent before the end of the 30th calendar day.
 
 Approved refunds are returned to the original payment method. If an ESA marketplace, administrator, school, or other program paid for the course, the refund will be returned to that payer or handled through its required process; it will not be paid directly to the family unless the family was the original payer. Third-party processing times may apply. Access to the refunded course and its unused materials ends when the refund is approved.
 
@@ -176,7 +176,7 @@ To the extent permitted by law, you agree to defend, indemnify, and hold Brights
 
 These Terms are governed by the laws of the State of Delaware, without regard to conflict-of-law principles. Any dispute that is not resolved informally will be brought exclusively in the state courts located in New Castle County, Delaware, or the United States District Court for the District of Delaware, and each party consents to their jurisdiction and venue.
 
-Before filing a claim, please send a written notice describing the issue and requested resolution to **support@brights.ai**. We will try in good faith to resolve the matter within 30 days. This informal process does not prevent either party from seeking urgent injunctive relief and does not extend a legal filing deadline unless applicable law provides otherwise.
+Before filing a claim, please send a written notice describing the issue and requested resolution to **support@brights.study**. We will try in good faith to resolve the matter within 30 days. This informal process does not prevent either party from seeking urgent injunctive relief and does not extend a legal filing deadline unless applicable law provides otherwise.
 
 If you are a consumer, this section does not deprive you of mandatory protections or the right to bring a claim in another forum where applicable law does not permit that right to be waived.
 
@@ -197,4 +197,4 @@ If any provision is unenforceable, it will be modified only as much as necessary
 **Magent Tech Inc.**  
 Doing business as Brights  
 Delaware corporation, United States  
-Email: **support@brights.ai**
+Email: **support@brights.study**

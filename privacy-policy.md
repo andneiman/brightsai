@@ -14,7 +14,7 @@ The operator responsible for the Services is:
 **Magent Tech Inc.**  
 Doing business as Brights  
 Delaware corporation, United States  
-Email: **support@brights.ai**
+Email: **support@brights.study**
 
 The service providers that may collect or maintain children's personal information through the Services are identified in Section 8.
 
@@ -184,7 +184,7 @@ A Parent may at any time:
 - withdraw consent and refuse further collection or use; and
 - request a description of the types of children's information collected and the operators that handle it.
 
-To exercise these rights, use the controls in the Parent account or contact **support@brights.ai**. We will verify the requester's identity and authority using reasonable methods that do not collect more information than necessary.
+To exercise these rights, use the controls in the Parent account or contact **support@brights.study**. We will verify the requester's identity and authority using reasonable methods that do not collect more information than necessary.
 
 Withdrawing consent or deleting information needed to provide the course may require us to close the student profile or discontinue affected features. We will explain the effect before completing the request. We may retain limited information only when legally permitted or required, such as transaction, consent, security, or legal records, and will not use it for another purpose.
 
@@ -216,7 +216,7 @@ When information is no longer reasonably necessary, we delete it or de-identify 
 
 We use administrative, technical, and physical safeguards appropriate to the nature of the information, including access controls, encryption, logging, backup controls, staff confidentiality obligations, service-provider review, vulnerability management, and incident-response procedures.
 
-No system is completely secure. Parents should use a unique password, protect Parent credentials, and contact **support@brights.ai** immediately if they suspect unauthorized access.
+No system is completely secure. Parents should use a unique password, protect Parent credentials, and contact **support@brights.study** immediately if they suspect unauthorized access.
 
 We will provide legally required notices if a security incident affects personal information.
 
@@ -234,9 +234,9 @@ Depending on where you live and subject to legal exceptions, you may have the ri
 - appeal a denied request; and
 - receive equal service and pricing without unlawful discrimination for exercising privacy rights.
 
-Brights does not sell personal information or use it for targeted advertising. To submit a request, email **support@brights.ai**. We may verify identity and authority before acting. An authorized agent may submit a request where permitted by law, but we may require proof of authorization and direct identity confirmation.
+Brights does not sell personal information or use it for targeted advertising. To submit a request, email **support@brights.study**. We may verify identity and authority before acting. An authorized agent may submit a request where permitted by law, but we may require proof of authorization and direct identity confirmation.
 
-If we deny a request, our response will explain the reason and any available appeal process. To appeal, email **support@brights.ai** with the subject line “Privacy Appeal.”
+If we deny a request, our response will explain the reason and any available appeal process. To appeal, email **support@brights.study** with the subject line “Privacy Appeal.”
 
 We honor legally required browser-based opt-out preference signals, such as Global Privacy Control, if we begin processing covered information in a way to which the signal applies. Because we do not sell or share personal information for cross-context behavioral advertising, there is currently no such processing to opt out of.
 
@@ -261,4 +261,4 @@ Questions or requests about this Policy or children's privacy may be sent to:
 **Magent Tech Inc.**  
 Attn: Privacy / Children's Privacy  
 Delaware corporation, United States  
-Email: **support@brights.ai**
+Email: **support@brights.study**

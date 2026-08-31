@@ -8,7 +8,7 @@ This Refund Policy applies to course purchases made through **brights.ai**, **br
 
 You may cancel a course purchase for any reason and request a full refund of the course price within **30 calendar days after the original purchase date**.
 
-To request a refund, email **support@brights.ai** from the Parent email address associated with the purchase. Include the Parent's name, order number or other purchase identifier, and the course name. The request is timely if it is sent before the end of the 30th calendar day after purchase.
+To request a refund, email **support@brights.study** from the Parent email address associated with the purchase. Include the Parent's name, order number or other purchase identifier, and the course name. The request is timely if it is sent before the end of the 30th calendar day after purchase.
 
 ## 2. How refunds are paid
 
@@ -34,11 +34,11 @@ Nothing in this Policy limits a refund or cancellation right that cannot lawfull
 
 The standard course-delivery target begins after both the Parent questionnaire and the student diagnostic are complete. If required onboarding information is missing, incomplete, or being corrected, that time does not count as a Brights delivery delay.
 
-If you believe a delivered course materially differs from the purchased description, contact **support@brights.ai** promptly so we can review and correct the issue.
+If you believe a delivered course materially differs from the purchased description, contact **support@brights.study** promptly so we can review and correct the issue.
 
 ## 6. Contact
 
 **Magent Tech Inc.**  
 Doing business as Brights  
 Delaware corporation, United States  
-Email: **support@brights.ai**
+Email: **support@brights.study**
