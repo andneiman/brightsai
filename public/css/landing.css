@@ -385,10 +385,10 @@ a {
   background: var(--cream);
 }
 
-.m1 { left: 8%; top: 63%; }
-.m2 { left: 32%; top: 54%; }
-.m3 { left: 51%; top: 40%; }
-.m4 { left: 69%; top: 21%; }
+.m1 { left: 8.76%; top: 272px; }
+.m2 { left: 33.14%; top: 232px; }
+.m3 { left: 51.34%; top: 173px; }
+.m4 { left: 69.95%; top: 91px; }
 
 .source {
   margin: 40px 0 0;
@@ -572,7 +572,7 @@ a {
   justify-content: space-between;
 }
 
-.num {
+.card .num {
   margin: 0;
   font-family: var(--display);
   font-size: 100px;
