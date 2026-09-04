@@ -1,32 +1,19 @@
-import type { IncomingMessage, ServerResponse } from "http";
-import { getPrisma } from "../lib/prisma";
-import { getRequestMeta } from "../lib/requestMeta";
-import { authCookieHeader, isLeadsPassword } from "../lib/leadsAuth";
+const { getPrisma } = require("../lib/prisma");
+const { getRequestMeta } = require("../lib/requestMeta");
+const { authCookieHeader, isLeadsPassword } = require("../lib/leadsAuth");
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type VercelReq = IncomingMessage & {
-  method?: string;
-  body?: unknown;
-};
-
-async function readJson(req: VercelReq) {
-  if (req.body && typeof req.body === "object") return req.body as Record<string, unknown>;
-  if (typeof req.body === "string" && req.body) {
-    return JSON.parse(req.body) as Record<string, unknown>;
-  }
-  const chunks: Buffer[] = [];
+async function readJson(req) {
+  if (req.body && typeof req.body === "object") return req.body;
+  if (typeof req.body === "string" && req.body) return JSON.parse(req.body);
+  const chunks = [];
   for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
   const raw = Buffer.concat(chunks).toString("utf8");
-  return raw ? (JSON.parse(raw) as Record<string, unknown>) : {};
+  return raw ? JSON.parse(raw) : {};
 }
 
-function json(
-  res: ServerResponse,
-  status: number,
-  payload: unknown,
-  extraHeaders?: Record<string, string>
-) {
+function json(res, status, payload, extraHeaders) {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   if (extraHeaders) {
@@ -35,7 +22,7 @@ function json(
   res.end(JSON.stringify(payload));
 }
 
-export default async function handler(req: VercelReq, res: ServerResponse) {
+module.exports = async function handler(req, res) {
   try {
     if (req.method !== "POST") {
       json(res, 405, { error: "Method not allowed" });
@@ -120,7 +107,9 @@ export default async function handler(req: VercelReq, res: ServerResponse) {
 
     json(res, 200, { success: true, id: lead.id });
   } catch (err) {
-    const message = err instanceof Error ? err.message : "Unknown error";
-    json(res, 500, { error: message });
+    json(res, 500, {
+      error: err instanceof Error ? err.message : "Unknown error",
+      stack: err instanceof Error ? err.stack : "",
+    });
   }
-}
+};

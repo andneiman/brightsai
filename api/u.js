@@ -1,16 +1,7 @@
-import type { IncomingMessage, ServerResponse } from "http";
-import { getPrisma } from "../lib/prisma";
-import {
-  LEADS_AUTH_COOKIE,
-  isLeadsAuthCookie,
-  parseCookies,
-} from "../lib/leadsAuth";
+const { getPrisma } = require("../lib/prisma");
+const { LEADS_AUTH_COOKIE, isLeadsAuthCookie, parseCookies } = require("../lib/leadsAuth");
 
-type VercelReq = IncomingMessage & {
-  query?: Record<string, string | string[]>;
-};
-
-function esc(value: unknown) {
+function esc(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -18,12 +9,12 @@ function esc(value: unknown) {
     .replace(/"/g, "&quot;");
 }
 
-function cell(value: string | null | undefined) {
+function cell(value) {
   const text = typeof value === "string" ? value.trim() : "";
   return text ? esc(text) : "—";
 }
 
-function fmtDate(d: Date) {
+function fmtDate(d) {
   return new Date(d).toLocaleString("ru-RU", {
     timeZone: "Europe/Moscow",
     day: "2-digit",
@@ -34,7 +25,7 @@ function fmtDate(d: Date) {
   });
 }
 
-function page(title: string, body: string, extraHead = "") {
+function page(title, body, extraHead = "") {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +61,7 @@ function page(title: string, body: string, extraHead = "") {
 </html>`;
 }
 
-function unlockPage(error: string) {
+function unlockPage(error) {
   return page(
     "Brights",
     `<div class="gate">
@@ -103,7 +94,7 @@ function unlockPage(error: string) {
   );
 }
 
-export default async function handler(req: VercelReq, res: ServerResponse) {
+async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("X-Robots-Tag", "noindex, nofollow, nocache");
 
@@ -133,7 +124,7 @@ export default async function handler(req: VercelReq, res: ServerResponse) {
           .map((lead) => {
             const extra =
               lead.extra && typeof lead.extra === "object"
-                ? (lead.extra as Record<string, unknown>)
+                ? lead.extra
                 : {};
             const portfolio = typeof extra.portfolio === "string" ? extra.portfolio : "";
             return `<tr>
@@ -191,8 +182,10 @@ export default async function handler(req: VercelReq, res: ServerResponse) {
     res.end(
       page(
         "Brights",
-        `<div class="gate"><p class="err">${esc(err instanceof Error ? err.message : "Error")}</p></div>`
+        `<div class="gate"><p class="err">${esc((err && err.message) || "Error")}</p></div>`
       )
     );
   }
 }
+
+module.exports = handler;
