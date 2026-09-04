@@ -1,5 +1,11 @@
 const { getPrisma } = require("../lib/prisma");
-const { LEADS_AUTH_COOKIE, isLeadsAuthCookie, parseCookies } = require("../lib/leadsAuth");
+const {
+  LEADS_AUTH_COOKIE,
+  isLeadsAuthCookie,
+  isLeadsPassword,
+  parseCookies,
+  authCookieHeader,
+} = require("../lib/leadsAuth");
 
 function esc(value) {
   return String(value ?? "")
@@ -65,38 +71,62 @@ function unlockPage(error) {
   return page(
     "Brights",
     `<div class="gate">
-      <form method="post" action="javascript:void(0)" id="unlock">
+      <form method="post" action="/api/u">
         <input type="password" name="password" autofocus autocomplete="current-password" placeholder="Password" required>
         ${error ? `<p class="err">${esc(error)}</p>` : ""}
         <button type="submit">Continue</button>
       </form>
-    </div>`,
-    `<script>
-      document.getElementById("unlock").addEventListener("submit", async function (e) {
-        e.preventDefault();
-        var btn = this.querySelector("button");
-        var password = this.password.value;
-        btn.disabled = true;
-        btn.textContent = "Continue…";
-        try {
-          var res = await fetch("/api/leads", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ unlock: true, password: password })
-          });
-          if (!res.ok) throw new Error("Wrong password");
-          window.location.assign("/u");
-        } catch (err) {
-          window.location.assign("/u?e=1");
-        }
-      });
-    </script>`
+    </div>`
   );
+}
+
+async function readBody(req) {
+  if (req.body && typeof req.body === "object") return req.body;
+  if (typeof req.body === "string" && req.body) {
+    const raw = req.body;
+    if ((req.headers["content-type"] || "").includes("json")) {
+      return JSON.parse(raw);
+    }
+    return Object.fromEntries(new URLSearchParams(raw));
+  }
+  const chunks = [];
+  for await (const chunk of req) {
+    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+  }
+  const raw = Buffer.concat(chunks).toString("utf8");
+  if (!raw) return {};
+  if ((req.headers["content-type"] || "").includes("json")) {
+    return JSON.parse(raw);
+  }
+  return Object.fromEntries(new URLSearchParams(raw));
 }
 
 async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("X-Robots-Tag", "noindex, nofollow, nocache");
+
+  if (req.method === "POST") {
+    try {
+      const body = await readBody(req);
+      const password = typeof body.password === "string" ? body.password : "";
+      if (!isLeadsPassword(password)) {
+        res.statusCode = 303;
+        res.setHeader("Location", "/u?e=1");
+        res.end();
+        return;
+      }
+      res.statusCode = 303;
+      res.setHeader("Location", "/u");
+      res.setHeader("Set-Cookie", authCookieHeader());
+      res.end();
+      return;
+    } catch (err) {
+      res.statusCode = 303;
+      res.setHeader("Location", "/u?e=1");
+      res.end();
+      return;
+    }
+  }
 
   const cookies = parseCookies(req.headers.cookie);
   const authed = isLeadsAuthCookie(cookies[LEADS_AUTH_COOKIE]);
