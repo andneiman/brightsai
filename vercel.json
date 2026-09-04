@@ -1,1 +1,6 @@
-{}
+{
+  "buildCommand": "npx prisma generate",
+  "rewrites": [
+    { "source": "/u", "destination": "/api/u" }
+  ]
+}

@@ -71,7 +71,7 @@
     <div class="team-panel">
       <div class="team-glow glow-a" aria-hidden="true"></div>
       <div class="team-glow glow-b" aria-hidden="true"></div>
-      <p class="kicker">From <img src="/img/landing/purple.svg" alt="Purple"> studio</p>
+      <p class="kicker">From <a class="purple-link" href="https://purple.studio" target="_blank" rel="noopener"><img src="/img/landing/purple.svg" alt="Purple"></a> studio</p>
       <h2 class="display display-80 team-title">The team behind<br>products loved by millions.</h2>
       <div class="badges">
         <div class="badge">
@@ -243,7 +243,7 @@
   <section class="section section-dark" id="apply">
     <div class="wrap apply">
       <div class="apply-copy">
-        <h2 class="display display-64">Bring the idea.<br>We will help you launch it.</h2>
+        <h2 class="display display-64 apply-title">Bring the idea. We will help you launch it.</h2>
         <p class="body-24">AI Product Builder Program<br>for designers by designers</p>
         <div class="checks">
           <div class="check"><img src="/img/landing/check.svg" alt="">Weekly sessions with the Purple team.</div>
@@ -253,7 +253,7 @@
           <p class="aside">Claude subscription is purchased separately.</p>
         </div>
       </div>
-      <form class="form-card" id="apply-form" novalidate>
+      <form class="form-card" id="apply-form">
         <div id="apply-fields">
           <div class="field">
             <label for="name">Name</label>
@@ -269,7 +269,8 @@
           </div>
         </div>
         <div id="apply-actions">
-          <button class="btn btn-dark" type="submit">Apply Now</button>
+          <p class="form-error" id="apply-error" hidden></p>
+          <button class="btn btn-dark" type="submit" id="apply-submit">Apply Now</button>
           <p class="consent">By submitting, you agree that Brights may contact you by phone or email about the program.</p>
         </div>
         <p class="form-success" id="apply-success" hidden>Thanks — we received your application and will be in touch.</p>
