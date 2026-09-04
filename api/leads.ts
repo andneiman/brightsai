@@ -36,12 +36,12 @@ function json(
 }
 
 export default async function handler(req: VercelReq, res: ServerResponse) {
-  if (req.method !== "POST") {
-    json(res, 405, { error: "Method not allowed" });
-    return;
-  }
-
   try {
+    if (req.method !== "POST") {
+      json(res, 405, { error: "Method not allowed" });
+      return;
+    }
+
     const body = await readJson(req);
 
     if (body.unlock === true) {

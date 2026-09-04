@@ -1,7 +1,6 @@
 {
   "name": "brightsai",
   "private": true,
-  "type": "module",
   "scripts": {
     "postinstall": "prisma generate",
     "build": "prisma generate"
