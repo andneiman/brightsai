@@ -1,5 +1,4 @@
 (function () {
-  var applyLinks = document.querySelectorAll("[data-scroll-apply]");
   var form = document.getElementById("apply-form");
   var formFields = document.getElementById("apply-fields");
   var formSuccess = document.getElementById("apply-success");
@@ -7,14 +6,12 @@
   var submitBtn = document.getElementById("apply-submit");
   var faqs = document.querySelectorAll(".faq-item");
 
-  applyLinks.forEach(function (el) {
+  document.querySelectorAll('a[href="#apply-form"]').forEach(function (el) {
     el.addEventListener("click", function (event) {
+      if (!form) return;
       event.preventDefault();
-      var target = document.getElementById("apply");
-      if (!target) return;
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      var name = document.getElementById("name");
-      if (name) window.setTimeout(function () { name.focus(); }, 400);
+      var y = form.getBoundingClientRect().top + window.pageYOffset - 12;
+      window.scrollTo({ top: y, behavior: "smooth" });
     });
   });
 
