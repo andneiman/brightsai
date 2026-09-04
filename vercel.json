@@ -1,6 +1,11 @@
 {
   "buildCommand": "npx prisma generate",
   "outputDirectory": "public",
+  "functions": {
+    "api/*.ts": {
+      "includeFiles": "{generated,lib}/**"
+    }
+  },
   "rewrites": [
     { "source": "/u", "destination": "/api/u" }
   ]
