@@ -945,7 +945,8 @@ a {
   .avatars { flex-wrap: wrap; }
   .split { grid-template-columns: 1fr; }
   .steps { flex-direction: column; }
-  .pair-card { min-height: 0; gap: 40px; padding: 32px; }
+  .pair-card { min-height: 560px; gap: 64px; padding: 40px; }
+  .pair-card .bottom { gap: 32px; }
   .chart-stat {
     left: 80px;
     top: 8px;
