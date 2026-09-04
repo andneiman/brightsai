@@ -956,4 +956,11 @@ a {
   #apply-actions {
     padding-top: 16px;
   }
+  .card {
+    min-height: 520px;
+    gap: 48px;
+  }
+  .card-wide {
+    min-height: 360px;
+  }
 }
