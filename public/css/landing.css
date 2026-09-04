@@ -952,4 +952,7 @@ a {
     width: calc(100% - 96px);
   }
   .mark { display: none; }
+  #apply-actions {
+    padding-top: 16px;
+  }
 }
